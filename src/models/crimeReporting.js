@@ -2,54 +2,46 @@ const mongoose = require("mongoose");
 
 const crimeReportingSchema = new mongoose.Schema(
 {
-    name:
-    {
+    name:{
         type: String,
         required: true,
         trim: true
     },
-    contactNumber:
-    {
+
+    contactNumber:{
         type: String,
         required: true
     },
-    crimeType:
-    {
+
+    crimeType:{
         type: String,
         required: true
     },
-    location:
-    {
-        latitude:
-        {
-            type: Number,
-            required: true
-        },
-        longitude:
-        {
-            type: Number,
-            required: true
-        }
+
+    location:{
+        type: String,
+        required: true,
+        trim: true
     },
-    suspected:
-    {
+
+    suspected:{
         type: String
     },
-    crimeDateTime:
-    {
+
+    crimeDateTime:{
         type: Date,
         required: true
     },
-    image:
-    {
+
+    image:{
         type: String
     },
-    moreInformation:
-    {
+
+    moreInformation:{
         type: String
     },
-    status:
-    {
+
+    status:{
         type: String,
         default: "Pending"
     }

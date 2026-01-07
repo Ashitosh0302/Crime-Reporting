@@ -1,13 +1,10 @@
 const express = require("express");
+const upload = require("../middlewares/upload");
+const{home_route,submit_crime} = require("../controllers/crimeReporting");
+
 const router = express.Router();
 
-const
-{
-    createCrimeReport,
-    getAllCrimeReports
-} = require("../controllers/crimeReporting");
-
-router.post("/", createCrimeReport);
-router.get("/", getAllCrimeReports);
+router.get("/", home_route);
+router.post("/", upload.single("image"), submit_crime);
 
 module.exports = router;
