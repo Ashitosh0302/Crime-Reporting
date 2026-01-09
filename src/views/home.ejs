@@ -1,34 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Crime Reporting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #e26715;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #c77414;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Crime Reporting Form</h2>
+    <center>
+        <img src="images/government_of_india.jpg" height="150px">
+        <img src="images/mh_police.jpg" height="150px">
+    </center>
+<br>
+    <div class="container">
 
-    <form method="POST" action="/" enctype="multipart/form-data">
+        <div class="card">
+            <img src="images/E_complaint.jpg" alt="Profile">
+            <h3>Online Complaint</h3>
+            <button>Register</button>
+        </div>
 
-        <input name="name" placeholder="Name" required /><br><br>
+        <div class="card">
+            <img src="images/missing_person.png" alt="Profile">
+            <h3>Missing person</h3>
+            <button>Register</button>
+        </div>
 
-        <input name="contactNumber" placeholder="Contact Number" required /><br><br>
+        <div class="card">
+            <img src="images/undefinedd.jpg" alt="Profile">
+            <h3>Unidentified dead body spot</h3>
+            <button>Register</button>
+        </div>
 
-        <input name="crimeType" placeholder="Type of Crime" required /><br><br>
+        <div class="card">
+            <img src="/images/cyber crime.avif" alt="Profile">
+            <h3>Cyber Crime</h3>
+            <button>Register</button>
+        </div>
 
-        <input name="location" type="text" placeholder="Enter Address / Area" required /><br><br>
+        <div class="card">
+            <img src="/images/accident.avif" alt="Profile">
+            <h3>Accident Compensation</h3>
+            <button>Register</button>
+        </div>
 
-        <input name="crimeDateTime" type="datetime-local" required /><br><br>
+        <div class="card">
+            <img src="/images/lost.png" alt="Profile">
+            <h3>Missing Items Report</h3>
+            <button>Register</button>
+        </div>
 
-        <input name="suspected" placeholder="Suspected (optional)" /><br><br>
+    </div>
 
-        <!-- IMAGE FIELD -->
-        <input type="file" name="image" accept="image/*" /><br><br>
-
-        <textarea name="moreInformation" placeholder="More Information"></textarea><br><br>
-
-        <button type="submit">Submit</button>
-    </form>
 </body>
 
 </html>

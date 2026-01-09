@@ -1,9 +1,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const crimeRoutes = require("./routes/crimeReporting");
 const mongoose = require("mongoose");
 const path=require("path")
+
+//routes import
+const E_complaint_route = require("./routes/E_complaint");
+const home_route=require("./routes/home")
 
 dotenv.config();
 
@@ -28,9 +31,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 //routes
-app.use("/", crimeRoutes);
+app.use("/",home_route)
+app.use("/E_complaint", E_complaint_route);
 
 //error handle
 app.use((err, req, res, next) =>

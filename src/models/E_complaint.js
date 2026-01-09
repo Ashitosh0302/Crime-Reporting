@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const crimeReportingSchema = new mongoose.Schema(
+const E_complaint_schema = new mongoose.Schema(
 {
     name:{
         type: String,
@@ -50,4 +50,4 @@ const crimeReportingSchema = new mongoose.Schema(
     timestamps: true
 });
 
-module.exports = mongoose.model("CrimeReporting", crimeReportingSchema);
+module.exports = mongoose.model("E_comaplaint", E_complaint_schema);

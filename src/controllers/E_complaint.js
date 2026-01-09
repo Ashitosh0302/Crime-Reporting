@@ -1,11 +1,11 @@
-const CrimeReporting = require("../models/crimeReporting");
+const CrimeReporting = require("../models/E_complaint");
 
-async function home_route(req, res)
+async function E_complaint(req, res)
 {
-    return res.render("home");
+    return res.render("E_complaint");
 }
 
-async function submit_crime(req, res, next)
+async function submit_E_complaint_crime(req, res, next)
 {
     try
     {
@@ -30,6 +30,6 @@ async function submit_crime(req, res, next)
 
 module.exports =
 {
-    home_route,
-    submit_crime
+    E_complaint,
+    submit_E_complaint_crime
 };
