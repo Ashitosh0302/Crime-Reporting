@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accident Reporting</title>
+</head>
+
+<body>
+
+    <img src="/images/government_of_india.jpg" height="100px">
+    <img src="/images/mh_police.jpg" height="100px">
+
+    <h2>Accident Reporting Form</h2>
+
+    <form method="post" action="/Accident">
+
+        <h3>Victim Information</h3>
+
+        <input type="text" name="victimName" placeholder="Victim Name" required><br><br>
+        <input type="number" name="victimAge" placeholder="Age" required><br><br>
+        <input type="tel" name="victimMobile" placeholder="Mobile Number" required><br><br>
+
+        <h3>Accident Information</h3>
+
+        <input type="datetime-local" name="accidentDateTime" required><br><br>
+        <input type="text" name="location" placeholder="Location" required><br><br>
+
+        <select name="accidentType" required>
+            <option value="">Select Accident Type</option>
+            <option value="Road Accident">Road Accident</option>
+            <option value="Workplace Accident">Workplace Accident</option>
+            <option value="Fire Accident">Fire Accident</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <select name="injuryNature" required>
+            <option value="">Nature of Injury</option>
+            <option value="Minor">Minor</option>
+            <option value="Serious">Serious</option>
+            <option value="Critical">Critical</option>
+        </select><br><br>
+
+        <input type="file" name="Image" accept="image/*" /><br><br>
+
+        <textarea name="otherInfo" placeholder="Other Information"></textarea><br><br>
+
+        <button type="submit">Submit Accident Report</button>
+
+    </form>
+
+</body>
+
+</html>

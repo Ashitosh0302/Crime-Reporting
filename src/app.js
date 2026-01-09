@@ -10,6 +10,7 @@ const E_complaint_route = require("./routes/E_complaint");
 const Missing_person_route=require("./routes/missing_person")
 const Unidentified_body_route=require("./routes/Unidentified_body")
 const Cyber_Crime_route=require("./routes/CyberCrime")
+const Accident_route=require("./routes/Accident")
 
 dotenv.config();
 
@@ -42,6 +43,7 @@ app.use("/E_complaint", E_complaint_route);
 app.use("/Missing_person",Missing_person_route)
 app.use("/Unidentified_body",Unidentified_body_route)
 app.use("/Cyber_Crime",Cyber_Crime_route)
+app.use("/Accident",Accident_route)
 
 //error handle
 app.use((err, req, res, next) =>
