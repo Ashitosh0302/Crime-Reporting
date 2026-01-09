@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crime Reporting</title>
+</head>
+
+<body>
+    <img src="/images/government_of_india.jpg" height="100px">
+    <img src="/images/mh_police.jpg" height="100px">
+
+    <h2>Unidentified Dead Body Spot Report Form</h2>
+
+    <form method="post" action="/Unidentified_body" enctype="multipart/form-data">
+
+        <h3>Reporter Information / तक्रारदाराची माहिती</h3>
+
+        <input name="name" placeholder="Reporter Name / तक्रारदाराचे नाव" required /><br><br>
+
+        <input name="mobileNumber" placeholder="Mobile Number / मोबाईल क्रमांक" required /><br><br>
+
+        <h3>Dead Body Information / मृतदेहाची माहिती</h3>
+
+        <textarea name="location" placeholder="Location where dead body was found / मृतदेह सापडलेले ठिकाण"
+            required></textarea><br><br>
+
+        <input type="datetime-local" name="dateTime" required /><br><br>
+
+        <select name="gender">
+            <option value="">Select Gender (Optional) / लिंग निवडा</option>
+            <option value="male">Male / पुरुष</option>
+            <option value="female">Female / स्त्री</option>
+            <option value="other">Other / इतर</option>
+        </select><br><br>
+
+        <input type="file" name="image" accept="image/*" /><br><br>
+
+        <button type="submit">Submit Report / अहवाल सादर करा</button>
+
+    </form>
+</body>
+
+</html>
