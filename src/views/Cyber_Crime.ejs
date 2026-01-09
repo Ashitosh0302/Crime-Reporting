@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cyber Crime Reporting</title>
+</head>
+
+<body>
+
+    <img src="/images/government_of_india.jpg" height="100px">
+    <img src="/images/mh_police.jpg" height="100px">
+
+    <h2>Cyber Crime Report Form</h2>
+
+    <form method="post" action="/Cyber_Crime" enctype="multipart/form-data">
+
+        <h3>Reporter Information / तक्रारदाराची माहिती</h3>
+
+        <input name="name" placeholder="Name / नाव" required /><br><br>
+
+        <input name="mobileNumber" placeholder="Mobile Number / मोबाईल क्रमांक" required /><br><br>
+
+        <input name="email" placeholder="Email ID (Optional)" /><br><br>
+
+        <h3>Crime Information / गुन्ह्याची माहिती</h3>
+
+        <select name="crimeType">
+            <option value="">Select Crime Type (Optional)</option>
+            <option value="online fraud">Online Fraud</option>
+            <option value="cyber harassment">Cyber Harassment</option>
+            <option value="hacking">Hacking</option>
+            <option value="identity theft">Identity Theft</option>
+            <option value="scams">Scams</option>
+        </select><br><br>
+
+        <input name="otherCrime" placeholder="Other (Optional)" /><br><br>
+
+        <select name="occurredAt">
+            <option value="">Where did it occur? (Optional)</option>
+            <option value="website">Website</option>
+            <option value="app">App</option>
+            <option value="call">Call</option>
+        </select><br><br>
+
+        <input type="datetime-local" name="dateTime" required /><br><br>
+
+        <input type="file" name="screenshot" accept="image/*" /><br><br>
+
+        <textarea name="extraInfo" placeholder="Extra Information (Optional)"></textarea><br><br>
+
+        <button type="submit">Submit Report</button>
+
+    </form>
+
+</body>
+</html>
