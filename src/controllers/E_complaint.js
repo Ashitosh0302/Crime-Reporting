@@ -1,4 +1,4 @@
-const CrimeReporting = require("../models/E_complaint");
+const E_complaint_model = require("../models/E_complaint");
 
 async function E_complaint(req, res)
 {
@@ -9,7 +9,7 @@ async function submit_E_complaint_crime(req, res, next)
 {
     try
     {
-        await CrimeReporting.create({
+        await E_complaint_model.create({
             name: req.body.name,
             contactNumber: req.body.contactNumber,
             crimeType: req.body.crimeType,

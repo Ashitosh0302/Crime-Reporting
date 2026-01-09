@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 const path=require("path")
 
 //routes import
-const E_complaint_route = require("./routes/E_complaint");
 const home_route=require("./routes/home")
+const E_complaint_route = require("./routes/E_complaint");
+const Missing_person_route=require("./routes/missing_person")
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 //routes
 app.use("/",home_route)
 app.use("/E_complaint", E_complaint_route);
+app.use("/Missing_person",Missing_person_route)
 
 //error handle
 app.use((err, req, res, next) =>

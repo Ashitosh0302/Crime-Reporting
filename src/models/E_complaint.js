@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const E_complaint_schema = new mongoose.Schema(
-{
+const E_complaint_schema = new mongoose.Schema({
     name:{
         type: String,
         required: true,
@@ -50,4 +49,4 @@ const E_complaint_schema = new mongoose.Schema(
     timestamps: true
 });
 
-module.exports = mongoose.model("E_comaplaint", E_complaint_schema);
+module.exports = mongoose.model("E_complaint", E_complaint_schema);
