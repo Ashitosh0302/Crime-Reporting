@@ -6,28 +6,32 @@
 </head>
 
 <body>
+    <img src="MH police.jpeg" height=100px">
+    <img src="Goverment of India.jpeg" height="100px">
+
+    
     <h2>Crime Reporting Form</h2>
 
     <form method="POST" action="/" enctype="multipart/form-data">
 
-        <input name="name" placeholder="Name" required /><br><br>
+        <input name="name" placeholder="Name / नाव" required /><br><br>
 
-        <input name="contactNumber" placeholder="Contact Number" required /><br><br>
+        <input name="contactNumber" placeholder="Contact Number / संपर्क क्रमांक" required /><br><br>
 
-        <input name="crimeType" placeholder="Type of Crime" required /><br><br>
+        <input name="crimeType" placeholder="Type of Crime / गुन्ह्याचा प्रकार" required /><br><br>
 
-        <input name="location" type="text" placeholder="Enter Address / Area" required /><br><br>
+        <input name="location" type="text" placeholder="Enter Address(Area) / गुन्हा घडल्याचे ठिकाण" required /><br><br>
 
         <input name="crimeDateTime" type="datetime-local" required /><br><br>
 
-        <input name="suspected" placeholder="Suspected (optional)" /><br><br>
+        <input name="suspected" placeholder="Suspected (optional) / संशयित" /><br><br>
 
         <!-- IMAGE FIELD -->
         <input type="file" name="image" accept="image/*" /><br><br>
 
-        <textarea name="moreInformation" placeholder="More Information"></textarea><br><br>
+        <textarea name="moreInformation" placeholder="More Information/अधिक माहिती"></textarea><br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Submit / नोंदणी करा</button>
     </form>
 </body>
 
