@@ -20,7 +20,7 @@ async function submit_E_complaint_crime(req, res, next)
             moreInformation: req.body.moreInformation
         });
 
-        res.redirect("/");
+        res.redirect("/E_complaint");
     }
     catch(error)
     {
