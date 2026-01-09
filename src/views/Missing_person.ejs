@@ -1,1 +1,57 @@
-Hiii
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crime Reporting</title>
+</head>
+
+<body>
+    <img src="/images/government_of_india.jpg" height="100px">
+    <img src="/images/mh_police.jpg" height="100px">
+    
+    <h2>Missing Person Report Form</h2>
+
+    <form method="POST" action="/E_complaint" enctype="multipart/form-data">
+
+   <h3>Reporter Information /  तक्रारदाराची माहिती</h3>
+
+   <input name="name" placeholder="Reporter Name / तक्रारदाराचे नाव" required/><br><br>
+
+   <input name="relation" placeholder="Relationship to Missing person / हरवलेल्या व्यक्तीशी संबंध"required /><br><br>
+
+   <input name="contactNumber" placeholder="Contact Number / संपर्क क्रमांक" required/><br><br>
+
+   <textarea name="reporterAddress" placeholder="Reporter Address / तक्रारदाराचा पत्ता" required></textarea><br><br>
+     
+
+   
+   <h3>Missing Person Details / गहाळ व्यक्तीची माहिती:</h3>
+   <input name="missingPersonName" placeholder="Missing Person Name / गहाळ व्यक्तीचे नाव" required/><br><br>
+   <input name="age" placeholder="Age / वय" required /><br><br>
+  <select name="gender" required>
+
+            <option value="">Select Gender / लिंग निवडा</option>
+
+            <option value="male">Male / पुरुष</option>
+            <option value="female">Female / स्त्री</option>
+            <option value="other">Other / इतर</option>
+        </select><br><br>
+
+    <input name="height" placeholder="Height (in cm) / उंची (सेंटीमीटर मध्ये)"><br><br>
+    <input name="identifyingMarks" placeholder="Identifying Marks / ओळखण्याची खूण" /><br><br>
+     <textarea name="clothing" placeholder="Clothing when last seen / शेवटच्या वेळी परिधान केलेले कपडे"></textarea><br><br>
+
+     <h3>Missing Details / गहाळ होण्याची माहिती:</h3>
+       <input name="crimeDateTime" type="datetime-local" required /><br><br>
+
+        <textarea name="circumstances" placeholder="Circumstances of Disappearance / गहाळ होण्याची परिस्थिती" required></textarea><br><br>
+     <h3>Additional Information / अतिरिक्त माहिती:</h3>
+     <input type="file" name="photo" accept="image/*" /><br><br>
+        
+        <textarea name="additionalInfo" placeholder="Any Additional Information / कोणतीही अतिरिक्त माहिती"></textarea><br><br>
+
+        <button type="submit">Submit Report / अहवाल सादर करा</button>
+    </form>
+</body>
+
+</html>
