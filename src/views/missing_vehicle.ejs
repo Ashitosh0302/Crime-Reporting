@@ -12,16 +12,16 @@
 
     <h2>Missing Vehicle Report Form / हरवलेल्या वाहनाचा तक्रार फॉर्म</h2>
 
-    <form method="post" action="/Cyber_Crime" enctype="multipart/form-data">
-       <h3>Owner Information / मालकाची माहिती</h3>
-        
+    <form method="post" action="/Missing_Item_forms/Missing_vehicle" enctype="multipart/form-data">
+        <h3>Owner Information / मालकाची माहिती</h3>
+
         <input name="name" placeholder="Owner Name / मालकाचे नाव" required /><br><br>
-        
+
         <input name="mobile" placeholder="Contact Number / संपर्क क्रमांक" required /><br><br>
-        
+
         <textarea name="address" placeholder="Owner Address / मालकाचा पत्ता" required></textarea><br><br>
-          <h3>Vehicle Details / वाहनाची माहिती</h3>
-        
+        <h3>Vehicle Details / वाहनाची माहिती</h3>
+
         <select name="vehicleType" required>
             <option value="">Select Vehicle Type / वाहनाचा प्रकार निवडा</option>
             <option value="car">Car / कार</option>
@@ -32,36 +32,40 @@
             <option value="other">Other / इतर</option>
         </select><br><br>
 
-<input name="otherVehicleType" placeholder="If other, please specify / इतर असल्यास कृपया स्पष्ट करा"><br><br>
-        
+        <input name="otherVehicleType" placeholder="If other, please specify / इतर असल्यास कृपया स्पष्ट करा"><br><br>
+
         <input name="vehicleNumber" placeholder="Vehicle Number / वाहन क्रमांक" required /><br><br>
-        
+
         <input name="vehicleMake" placeholder="Make (Brand) / ब्रँड" required /><br><br>
-        
+
         <input name="vehicleModel" placeholder="Model / मॉडेल" required /><br><br>
-        
+
         <input name="vehicleColor" placeholder="Color / रंग" required /><br><br>
-        
-      
+
+
 
         <h3>Missing Details / हरवण्याची माहिती</h3>
-        
+
         <input name="location" placeholder="Last Parked Location / शेवटचे पार्क केलेले ठिकाण" required /><br><br>
-  <input name="dateTime" type="datetime-local" required /><br><br>
-        
-        <textarea name="circumstances" placeholder="Circumstances of Theft / चोरीची परिस्थिती" required></textarea><br><br>
+        <input name="dateTime" type="datetime-local" required /><br><br>
+
+        <textarea name="circumstances" placeholder="Circumstances of Theft / चोरीची परिस्थिती"
+            required></textarea><br><br>
 
         <h3>Additional Information / अतिरिक्त माहिती</h3>
-<small>Vehicle Photo (Required) / वाहनाचा फोटो (आवश्यक):</small><br>
- <input type="file" name="vehiclePhoto" accept="image/*" required /><br><br>
-  <small>RC / Passing Bill from RTO Office (Required) / आरटीओ कार्यालयातील आरसी/पासिंग बील (आवश्यक):</small><br>
-   <input type="file" name="rcPassingBill" accept="image/*,.pdf" required /><br><br>
+        <small>Vehicle Photo (Required) / वाहनाचा फोटो (आवश्यक):</small><br>
+        <input type="file" name="vehiclePhoto" accept="image/*" required /><br><br>
+        <small>RC / Passing Bill from RTO Office (Required) / आरटीओ कार्यालयातील आरसी/पासिंग बील (आवश्यक):</small><br>
+        <input type="file" name="rcPassingBill" accept="image/*,.pdf" required /><br><br>
 
- <small>Insurance Copy (Optional) / विमा कॉपी (पर्यायी):</small><br>
-<input type="file" name="insuranceCopy" accept="image/*,.pdf" /><br><br>
- <textarea name="additionalInfo" placeholder="Any Additional Information / कोणतीही अतिरिक्त माहिती"></textarea><br><br>
+        <small>Insurance Copy (Optional) / विमा कॉपी (पर्यायी):</small><br>
+        <input type="file" name="insuranceCopy" accept="image/*,.pdf" /><br><br>
+        <textarea name="additionalInfo"
+            placeholder="Any Additional Information / कोणतीही अतिरिक्त माहिती"></textarea><br><br>
 
-        <button type="submit">Submit Report / अहवाल सादर करा</button></form>
+        <button type="submit">Submit Report / अहवाल सादर करा</button>
+    </form>
 
 </body>
+
 </html>
