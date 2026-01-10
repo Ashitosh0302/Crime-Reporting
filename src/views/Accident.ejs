@@ -10,41 +10,56 @@
     <img src="/images/government_of_india.jpg" height="100px">
     <img src="/images/mh_police.jpg" height="100px">
 
-    <h2>Accident Reporting Form</h2>
+    <h2>Accident Reporting Form / अपघात नोंदणी फॉर्म</h2>
 
     <form method="post" action="/Accident">
+        
+        <h3>Reporter Information / तक्रारदाराची माहिती</h3>
 
-        <h3>Victim Information</h3>
-
-        <input type="text" name="victimName" placeholder="Victim Name" required><br><br>
-        <input type="number" name="victimAge" placeholder="Age" required><br><br>
-        <input type="tel" name="victimMobile" placeholder="Mobile Number" required><br><br>
-
-        <h3>Accident Information</h3>
-
-        <input type="datetime-local" name="accidentDateTime" required><br><br>
-        <input type="text" name="location" placeholder="Location" required><br><br>
-
-        <select name="accidentType" required>
-            <option value="">Select Accident Type</option>
-            <option value="Road Accident">Road Accident</option>
-            <option value="Workplace Accident">Workplace Accident</option>
-            <option value="Fire Accident">Fire Accident</option>
-            <option value="Other">Other</option>
+        <input type="text" name="reporterName" placeholder="Reporter Name / तक्रारदाराचे नाव" required><br><br>
+        <input type="tel" name="reporterMobile" placeholder="Reporter Mobile Number / तक्रारदाराचा मोबाइल नंबर" required><br><br>
+         
+        <select name="reporterType" required>
+            <option value="">Reporter Type / तक्रारदाराचा प्रकार</option>
+            <option value="victim">Victim / बळी</option>
+            <option value="relative">Relative / नातेवाईक</option>
+            <option value="witness">Witness / साक्षीदार</option>
+            <option value="other">Other / इतर</option>
         </select><br><br>
 
+
+        <h3>Victim Information / बळीची माहिती</h3>
+
+        <input type="text" name="victimName" placeholder="Victim Name /  बळीचे नाव" required><br><br>
+        <input type="number" name="victimAge" placeholder="Age / वय" required><br><br>
+        <input type="tel" name="victimMobile" placeholder=" Victim Mobile Number / बळीचा मोबाइल नंबर" required><br><br>
+
+        <h3>Accident Information / अपघाताची माहिती</h3>
+
+        <input type="datetime-local" name="accidentDateTime" required><br><br>
+        <input type="text" name="location" placeholder="Location / ठिकाण" required><br><br>
+
+        <select name="accidentType" required>
+            <option value="">Select Accident Type / अपघाताचा प्रकार निवडा</option>
+            <option value="Road Accident">Road Accident / रस्ता अपघात</option>
+            <option value="Workplace Accident">Workplace Accident / कामाच्या ठिकाणी अपघात</option>
+            <option value="Fire Accident">Fire Accident / आगीचा अपघात</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+        <input type="text" name="otherAccidentType" placeholder="If other, please specify / इतर असल्यास कृपया स्पष्ट करा"> <br><br>
+
         <select name="injuryNature" required>
-            <option value="">Nature of Injury</option>
-            <option value="Minor">Minor</option>
-            <option value="Serious">Serious</option>
-            <option value="Critical">Critical</option>
+            <option value="">Nature of Injury / जखमेचे स्वरूप</option>
+            <option value="Minor">Minor / किरकोळ</option>
+            <option value="Serious">Serious / गंभीर</option>
+            <option value="Critical">Critical / गंभीर प्रकारची</option>
         </select><br><br>
 
         <input type="file" name="Image" accept="image/*" /><br><br>
 
-        <textarea name="otherInfo" placeholder="Other Information"></textarea><br><br>
+        <textarea name="otherInfo" placeholder="Other Information / इतर माहिती"></textarea><br><br>
 
-        <button type="submit">Submit Accident Report</button>
+        <button type="submit">Submit Accident Report / अपघात अहवाल सादर करा</button>
 
     </form>
 

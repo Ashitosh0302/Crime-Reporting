@@ -9,7 +9,7 @@
     <img src="/images/government_of_india.jpg" height="100px">
     <img src="/images/mh_police.jpg" height="100px">
 
-    <h2>Unidentified Dead Body Spot Report Form</h2>
+    <h2>Unidentified Dead Body Spot Report Form / अओळखी मृतदेह तक्रार फॉर्म</h2>
 
     <form method="post" action="/Unidentified_body" enctype="multipart/form-data">
 
@@ -17,7 +17,7 @@
 
         <input name="name" placeholder="Reporter Name / तक्रारदाराचे नाव" required /><br><br>
 
-        <input name="mobileNumber" placeholder="Mobile Number / मोबाईल क्रमांक" required /><br><br>
+        <input name="contactNumber" placeholder="Mobile Number / मोबाईल क्रमांक" required /><br><br>
 
         <h3>Dead Body Information / मृतदेहाची माहिती</h3>
 
@@ -32,8 +32,9 @@
             <option value="female">Female / स्त्री</option>
             <option value="other">Other / इतर</option>
         </select><br><br>
-
+ <small>Photo of dead body (if possible) / मृतदेहाचा फोटो (शक्य असल्यास)</small><br><br>
         <input type="file" name="image" accept="image/*" /><br><br>
+<textarea name="additionalInfo" placeholder="Additional Information (Optional) / अतिरिक्त माहिती (पर्यायी)"></textarea><br><br>
 
         <button type="submit">Submit Report / अहवाल सादर करा</button>
 
