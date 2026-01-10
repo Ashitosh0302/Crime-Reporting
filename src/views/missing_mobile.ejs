@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Missing Mobile/Laptop/Gadgets Report</title>
+</head>
+
+<body>
+
+    <img src="/images/government_of_india.jpg" height="100px">
+    <img src="/images/mh_police.jpg" height="100px">
+
+    <h2>Missing Mobile/Laptop/Gadgets Report Form / हरवलेला मोबाईल/लॅपटॉप/उपकरणे तक्रार फॉर्म:</h2>
+
+    <form method="post" action="/Cyber_Crime" enctype="multipart/form-data">
+
+ 
+        <input name="name" placeholder="Owner Name / मालकाचे नाव" required /><br><br>
+        
+        <input name="mobile" placeholder="Contact Number / संपर्क क्रमांक" required /><br><br>
+        
+        <textarea name="address" placeholder="Owner Address / मालकाचा पत्ता" required></textarea><br><br>
+  <h3>Missing Item Details / हरवलेल्या वस्तूची माहिती</h3>
+   <select name="itemType" required>
+            <option value="">Select Item Type / वस्तूचा प्रकार निवडा</option>
+            <option value="mobile">Mobile Phone / मोबाईल फोन</option>
+            <option value="laptop">Laptop / लॅपटॉप</option>
+            <option value="tablet">Tablet / टॅब्लेट</option>
+            <option value="camera">Camera / कॅमेरा</option>
+            <option value="smartwatch">Smart Watch / स्मार्टवॉच</option>
+            <option value="other">Other / इतर</option>
+        </select><br><br>
+        
+        <input name="otherItemType" placeholder="If other, please specify / इतर असल्यास कृपया स्पष्ट करा"><br><br>
+         <input name="brand" placeholder="Brand / ब्रँड" required /><br><br>
+        
+        <input name="model" placeholder="Model / मॉडेल" required /><br><br>
+        
+        <input name="imei" placeholder="IMEI Number (for mobile) / आयएमईआय नंबर (मोबाईलसाठी)" /><br><br>
+        
+        <input name="serialNumber" placeholder="Serial Number / सीरियल नंबर" /><br><br>
+         <input name="color" placeholder="Color / रंग" /><br><br>
+         
+          <h3>Missing Details / हरवण्याची माहिती</h3>
+        
+        <input name="location" placeholder="Last Seen Location / शेवटचा दिसलेला ठिकाण" required /><br><br>
+        
+        <input name="dateTime" type="datetime-local" required /><br><br>
+        
+        <textarea name="circumstances" placeholder="Circumstances of Loss / हरवण्याची परिस्थिती" required></textarea><br><br>
+         <h3>Additional Information / अतिरिक्त माहिती</h3>
+ <small>Purchase Bill (Required) / खरेदी बील (आवश्यक)</small><br><br>
+          <input type="file" name="purchaseBill" accept="image/*,.pdf" required /><br>
+       
+ <small>Photo of item (if available) / वस्तूचा फोटो (उपलब्ध असल्यास)</small><br><br>
+          <input type="file" name="image" accept="image/*" /><br><br>
+ <textarea name="additionalInfo" placeholder="Any Additional Information / कोणतीही अतिरिक्त माहिती"></textarea><br><br>
+
+        <button type="submit">Submit Report / अहवाल सादर करा</button>
+
+
+    </form>
+
+</body>
+</html>
