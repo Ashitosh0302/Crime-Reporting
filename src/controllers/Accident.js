@@ -10,6 +10,9 @@ async function Submit_Accident(req, res, next)
     try
     {
         await Accident.create({
+            ReporterName: req.body.ReporterName,
+            ReporterMobile: req.body.ReporterMobile,
+            ReporterType: req.body.ReporterType,
             victimName: req.body.victimName,
             victimAge: req.body.victimAge,
             victimMobile: req.body.victimMobile,

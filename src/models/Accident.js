@@ -2,6 +2,18 @@ const mongoose = require("mongoose");
 
 const accidentSchema = new mongoose.Schema(
     {
+        ReporterName:{
+            type: String,
+            required:true
+        },
+        ReporterMobile:{
+            type: String,
+            required:true
+        },
+        ReporterType:{
+            type: String,
+            required: true
+        },
         victimName:
         {
             type: String,
