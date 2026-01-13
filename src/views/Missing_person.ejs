@@ -1,60 +1,417 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Crime Reporting</title>
+    <meta charset="UTF-8">
+    <title>Missing Person Report Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        body{
+            font-family:'Segoe UI',Arial,sans-serif;
+            background:linear-gradient(135deg,#0b1220,#1e3c72,#2a5298);
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            padding:20px 10px 30px;
+            color:#e5e7eb;
+        }
+
+        .header-bar{
+            width:100%;
+            max-width:720px;
+            background:rgba(15,27,51,0.9);
+            border-radius:18px;
+            padding:12px 16px 10px;
+            box-shadow:0 14px 32px rgba(0,0,0,0.7);
+            border:1px solid rgba(148,163,184,0.6);
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            margin-bottom:18px;
+            backdrop-filter:blur(14px);
+        }
+
+        .header-logos{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:24px;
+            margin-bottom:6px;
+        }
+
+        .header-logos img{
+            height:110px;
+            filter:drop-shadow(0 6px 14px rgba(0,0,0,0.55));
+            border-radius:12px;
+            background:#020617;
+            padding:4px;
+        }
+
+        .header-title{
+            text-align:center;
+            border-top:1px solid rgba(148,163,184,0.5);
+            padding-top:6px;
+        }
+
+        .title{
+            font-size:1.9rem;
+            color:#f9fafb;
+        }
+
+        .subtitle{
+            font-size:0.95rem;
+            opacity:0.9;
+        }
+
+        .form-wrapper{
+            width:100%;
+            max-width:720px;
+            background:rgba(23,42,79,0.96);
+            border-radius:18px;
+            padding:22px 20px 26px;
+            box-shadow:0 18px 40px rgba(0,0,0,0.75);
+            border:1px solid rgba(148,163,184,0.75);
+        }
+
+        form{width:100%;}
+
+        .section-title{
+            font-size:1.1rem;
+            margin-bottom:10px;
+            margin-top:4px;
+            color:#e5e7eb;
+        }
+
+        .section{
+            margin-bottom:18px;
+            padding:10px 10px 8px;
+            border-radius:14px;
+            background:rgba(15,23,42,0.9);
+            border:1px solid rgba(148,163,184,0.5);
+        }
+
+        .field{
+            position:relative;
+            margin-bottom:16px;
+        }
+
+        .field input,
+        .field textarea,
+        .field select{
+            width:100%;
+            padding:14px 12px;
+            font-size:0.95rem;
+            border-radius:12px;
+            border:1px solid rgba(148,163,184,0.95);
+            background:#0f172a;
+            color:#e5e7eb;
+            outline:none;
+            appearance:none;
+        }
+
+        .field textarea{
+            min-height:90px;
+            resize:vertical;
+        }
+
+        .field input::placeholder,
+        .field textarea::placeholder{
+            color:transparent;
+        }
+
+        .field label{
+            position:absolute;
+            left:14px;
+            top:50%;
+            transform:translateY(-50%);
+            font-size:0.9rem;
+            color:#cbd5f5;
+            pointer-events:none;
+            transition:all .18s ease;
+            padding:0 8px;
+            background:#172554;
+            border-radius:999px;
+            border:1px solid transparent;
+        }
+
+        .field textarea + label{
+            top:18px;
+            transform:none;
+        }
+
+        /* floating for input + textarea on focus or filled */
+        .field input:focus + label,
+        .field input:not(:placeholder-shown) + label{
+            top:0;
+            transform:translateY(-50%);
+            font-size:0.75rem;
+            color:#38bdf8;
+            border-color:rgba(56,189,248,0.7);
+        }
+
+        .field textarea:focus + label,
+        .field textarea:not(:placeholder-shown) + label{
+            top:0;
+            font-size:0.75rem;
+            color:#38bdf8;
+            border-color:rgba(56,189,248,0.7);
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus{
+            border-color:#38bdf8;
+            box-shadow:0 0 0 1px rgba(56,189,248,0.5);
+            background:#020617;
+        }
+
+        /* select floating label trick: treat first option as placeholder */
+        .field select{
+            color:#e5e7eb;
+        }
+        .field select option[disabled]{
+            color:#6b7280;
+        }
+        .field select:has(option:checked[disabled]){
+            color:#6b7280;
+        }
+
+        .field select + label{
+            top:50%;
+            transform:translateY(-50%);
+        }
+
+        .field select:focus + label,
+        .field select:not(:has(option:checked[disabled])) + label{
+            top:0;
+            transform:translateY(-50%);
+            font-size:0.75rem;
+            color:#38bdf8;
+            border-color:rgba(56,189,248,0.7);
+        }
+
+        /* image upload section */
+        .file-field{
+            margin-top:6px;
+            border-radius:12px;
+            border:1px solid rgba(148,163,184,0.95);
+            background:#0f172a;
+            padding:12px 12px 10px;
+            position:relative;
+        }
+
+        .file-field-title{
+            position:absolute;
+            top:0;
+            left:14px;
+            transform:translateY(-50%);
+            font-size:0.8rem;
+            color:#cbd5f5;
+            padding:0 8px;
+            border-radius:999px;
+            background:#172554;
+            border:1px solid rgba(148,163,184,0.8);
+        }
+
+        .file-row{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            flex-wrap:wrap;
+            margin-top:8px;
+        }
+
+        .file-input{display:none;}
+
+        .file-btn{
+            padding:8px 16px;
+            border-radius:999px;
+            border:none;
+            background:linear-gradient(45deg,#2563eb,#38bdf8);
+            color:#f9fafb;
+            font-size:0.85rem;
+            font-weight:600;
+            cursor:pointer;
+            box-shadow:0 4px 12px rgba(37,99,235,0.5);
+            transition:transform .15s ease,box-shadow .15s ease;
+        }
+
+        .file-btn:hover{
+            transform:translateY(-1px);
+            box-shadow:0 7px 18px rgba(37,99,235,0.6);
+        }
+
+        .file-name{
+            font-size:0.8rem;
+            color:#e5e7eb;
+            opacity:0.9;
+        }
+
+        .submit-btn{
+            width:100%;
+            padding:12px 22px;
+            border-radius:999px;
+            border:none;
+            background:linear-gradient(45deg,#f97316,#fbbf24);
+            color:#111827;
+            font-weight:600;
+            font-size:0.95rem;
+            text-transform:uppercase;
+            letter-spacing:0.5px;
+            cursor:pointer;
+            box-shadow:0 10px 24px rgba(249,115,22,0.6);
+            transition:transform .15s ease,box-shadow .15s ease;
+            margin-top:6px;
+        }
+
+        .submit-btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 14px 30px rgba(249,115,22,0.75);
+        }
+
+        .submit-btn:active{
+            transform:translateY(1px) scale(.97);
+            box-shadow:0 4px 12px rgba(0,0,0,0.85);
+        }
+
+        @media(max-width:600px){
+            .header-logos img{height:95px;}
+            .title{font-size:1.6rem;}
+            .form-wrapper{padding:18px 16px 22px;}
+        }
+    </style>
 </head>
-
 <body>
-    <img src="/images/government_of_india.jpg" height="100px">
-    <img src="/images/mh_police.jpg" height="100px">
+    <div class="header-bar">
+        <div class="header-logos">
+            <img src="/images/government_of_india.jpg" alt="Government of India">
+            <img src="/images/mh_police.jpg" alt="Maharashtra Police">
+        </div>
+        <div class="header-title">
+            <h2 class="title">Missing Person Report</h2>
+            <p class="subtitle">Help the police by sharing accurate details</p>
+        </div>
+    </div>
 
-    <h2>Missing Person Report Form</h2>
+    <div class="form-wrapper">
+        <form method="post" action="/Missing_person" enctype="multipart/form-data">
 
-    <form method="post" action="/Missing_person" enctype="multipart/form-data">
+            <!-- Reporter section -->
+            <div class="section">
+                <h3 class="section-title">Reporter Information / तक्रारदाराची माहिती</h3>
 
-        <h3>Reporter Information / तक्रारदाराची माहिती</h3>
+                <div class="field">
+                    <input name="name" id="reporterName" placeholder="Reporter Name / तक्रारदाराचे नाव" required>
+                    <label for="reporterName">Reporter Name / तक्रारदाराचे नाव</label>
+                </div>
 
-        <input name="name" placeholder="Reporter Name / तक्रारदाराचे नाव" required /><br><br>
+                <div class="field">
+                    <input name="relation" id="relation" placeholder="Relationship to Missing person / हरवलेल्या व्यक्तीशी संबंध" required>
+                    <label for="relation">Relationship to Missing person / हरवलेल्या व्यक्तीशी संबंध</label>
+                </div>
 
-        <input name="relation" placeholder="Relationship to Missing person / हरवलेल्या व्यक्तीशी संबंध"
-            required /><br><br>
+                <div class="field">
+                    <input name="contactNumber" id="contactNumber" placeholder="Contact Number / संपर्क क्रमांक" required>
+                    <label for="contactNumber">Contact Number / संपर्क क्रमांक</label>
+                </div>
 
-        <input name="contactNumber" placeholder="Contact Number / संपर्क क्रमांक" required /><br><br>
+                <div class="field">
+                    <textarea name="reporterAddress" id="reporterAddress" placeholder="Reporter Address / तक्रारदाराचा पत्ता" required></textarea>
+                    <label for="reporterAddress">Reporter Address / तक्रारदाराचा पत्ता</label>
+                </div>
+            </div>
 
-        <textarea name="reporterAddress" placeholder="Reporter Address / तक्रारदाराचा पत्ता"
-            required></textarea><br><br>
+            <!-- Missing person details -->
+            <div class="section">
+                <h3 class="section-title">Missing Person Details / गहाळ व्यक्तीची माहिती</h3>
 
-        <h3>Missing Person Details / गहाळ व्यक्तीची माहिती:</h3>
-        <input name="missingPersonName" placeholder="Missing Person Name / गहाळ व्यक्तीचे नाव" required /><br><br>
-        <input name="age" placeholder="Age / वय" required /><br><br>
-        <select name="gender" required>
+                <div class="field">
+                    <input name="missingPersonName" id="missingPersonName" placeholder="Missing Person Name / गहाळ व्यक्तीचे नाव" required>
+                    <label for="missingPersonName">Missing Person Name / गहाळ व्यक्तीचे नाव</label>
+                </div>
 
-            <option value="">Select Gender / लिंग निवडा</option>
+                <div class="field">
+                    <input name="age" id="age" placeholder="Age / वय" required>
+                    <label for="age">Age / वय</label>
+                </div>
 
-            <option value="male">Male / पुरुष</option>
-            <option value="female">Female / स्त्री</option>
-            <option value="other">Other / इतर</option>
-        </select><br><br>
+                <div class="field">
+                    <select name="gender" id="gender" required>
+                        <option value="" disabled selected>Select Gender / लिंग निवडा</option>
+                        <option value="male">Male / पुरुष</option>
+                        <option value="female">Female / स्त्री</option>
+                        <option value="other">Other / इतर</option>
+                    </select>
+                    <label for="gender">Gender / लिंग</label>
+                </div>
 
-        <input name="height" placeholder="Height (in cm) / उंची (सेंटीमीटर मध्ये)"><br><br>
-        <input name="identifyingMarks" placeholder="Identifying Marks / ओळखण्याची खूण" /><br><br>
-        <textarea name="clothing"
-            placeholder="Clothing when last seen / शेवटच्या वेळी परिधान केलेले कपडे"></textarea><br><br>
+                <div class="field">
+                    <input name="height" id="height" placeholder="Height (in cm) / उंची (सेमी मध्ये)">
+                    <label for="height">Height (in cm) / उंची (सेमी मध्ये)</label>
+                </div>
 
-        <h3>Missing Details / गहाळ होण्याची माहिती:</h3>
-        <input name="crimeDateTime" type="datetime-local" required /><br><br>
+                <div class="field">
+                    <input name="identifyingMarks" id="identifyingMarks" placeholder="Identifying Marks / ओळखण्याची खूण">
+                    <label for="identifyingMarks">Identifying Marks / ओळखण्याची खूण</label>
+                </div>
 
-        <textarea name="circumstances" placeholder="Circumstances of Disappearance / गहाळ होण्याची परिस्थिती"
-            required></textarea><br><br>
-        <h3>Additional Information / अतिरिक्त माहिती:</h3>
-        <input type="file" name="photo" accept="image/*" /><br><br>
+                <div class="field">
+                    <textarea name="clothing" id="clothing" placeholder="Clothing when last seen / शेवटच्या वेळी परिधान केलेले कपडे"></textarea>
+                    <label for="clothing">Clothing when last seen / शेवटच्या वेळी परिधान केलेले कपडे</label>
+                </div>
+            </div>
 
-        <textarea name="additionalInfo"
-            placeholder="Any Additional Information / कोणतीही अतिरिक्त माहिती"></textarea><br><br>
+            <!-- Missing details -->
+            <div class="section">
+                <h3 class="section-title">Missing Details / गहाळ होण्याची माहिती</h3>
 
-        <button type="submit">Submit Report / अहवाल सादर करा</button>
-    </form>
+                <div class="field">
+                    <input name="crimeDateTime" id="crimeDateTime" type="datetime-local" placeholder="Date & Time" required>
+                    <label for="crimeDateTime">Date &amp; Time of disappearance / गहाळ होण्याची तारीख व वेळ</label>
+                </div>
+
+                <div class="field">
+                    <textarea name="circumstances" id="circumstances" placeholder="Circumstances of Disappearance / गहाळ होण्याची परिस्थिती" required></textarea>
+                    <label for="circumstances">Circumstances of Disappearance / गहाळ होण्याची परिस्थिती</label>
+                </div>
+            </div>
+
+            <!-- Additional info -->
+            <div class="section">
+                <h3 class="section-title">Additional Information / अतिरिक्त माहिती</h3>
+
+                <div class="file-field">
+                    <span class="file-field-title">Upload Photo (optional) / छायाचित्र अपलोड करा</span>
+                    <div class="file-row">
+                        <label class="file-btn" for="photoInput">Choose Photo</label>
+                        <span id="photoName" class="file-name">No file chosen</span>
+                        <input class="file-input" id="photoInput" type="file" name="photo" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="field" style="margin-top:12px;">
+                    <textarea name="additionalInfo" id="additionalInfo" placeholder="Any Additional Information / कोणतीही अतिरिक्त माहिती"></textarea>
+                    <label for="additionalInfo">Any Additional Information / कोणतीही अतिरिक्त माहिती</label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Report / अहवाल सादर करा</button>
+        </form>
+    </div>
+
+    <script>
+        const photoInput = document.getElementById('photoInput');
+        const photoNameSpan = document.getElementById('photoName');
+
+        photoInput.addEventListener('change', () => {
+            if (photoInput.files && photoInput.files.length > 0) {
+                photoNameSpan.textContent = photoInput.files[0].name;
+            } else {
+                photoNameSpan.textContent = 'No file chosen';
+            }
+        });
+    </script>
 </body>
-
 </html>

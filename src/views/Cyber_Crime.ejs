@@ -1,61 +1,398 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Cyber Crime Reporting</title>
+    <meta charset="UTF-8">
+    <title>Cyber Crime Report Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        body{
+            font-family:'Segoe UI',Arial,sans-serif;
+            background:linear-gradient(135deg,#0b1220,#1e3c72,#2a5298);
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            padding:20px 10px 30px;
+            color:#e5e7eb;
+        }
+
+        .header-bar{
+            width:100%;
+            max-width:720px;
+            background:rgba(15,27,51,0.9);
+            border-radius:18px;
+            padding:12px 16px 10px;
+            box-shadow:0 14px 32px rgba(0,0,0,0.7);
+            border:1px solid rgba(148,163,184,0.6);
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            margin-bottom:18px;
+            backdrop-filter:blur(14px);
+        }
+
+        .header-logos{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:24px;
+            margin-bottom:6px;
+        }
+
+        .header-logos img{
+            height:110px;
+            filter:drop-shadow(0 6px 14px rgba(0,0,0,0.55));
+            border-radius:12px;
+            background:#020617;
+            padding:4px;
+        }
+
+        .header-title{
+            text-align:center;
+            border-top:1px solid rgba(148,163,184,0.5);
+            padding-top:6px;
+        }
+
+        .title{
+            font-size:1.9rem;
+            color:#f9fafb;
+        }
+
+        .subtitle{
+            font-size:0.95rem;
+            opacity:0.9;
+        }
+
+        .form-wrapper{
+            width:100%;
+            max-width:720px;
+            background:rgba(23,42,79,0.96);
+            border-radius:18px;
+            padding:22px 20px 26px;
+            box-shadow:0 18px 40px rgba(0,0,0,0.75);
+            border:1px solid rgba(148,163,184,0.75);
+        }
+
+        form{width:100%;}
+
+        .section{
+            margin-bottom:18px;
+            padding:10px 10px 8px;
+            border-radius:14px;
+            background:rgba(15,23,42,0.9);
+            border:1px solid rgba(148,163,184,0.5);
+        }
+
+        .section-title{
+            font-size:1.1rem;
+            margin-bottom:10px;
+            color:#e5e7eb;
+        }
+
+        .field{
+            position:relative;
+            margin-bottom:16px;
+        }
+
+        .field input,
+        .field textarea,
+        .field select{
+            width:100%;
+            padding:14px 12px;
+            font-size:0.95rem;
+            border-radius:12px;
+            border:1px solid rgba(148,163,184,0.95);
+            background:#0f172a;
+            color:#e5e7eb;
+            outline:none;
+            appearance:none;
+        }
+
+        .field textarea{
+            min-height:90px;
+            resize:vertical;
+        }
+
+        .field input::placeholder,
+        .field textarea::placeholder{
+            color:transparent;
+        }
+
+        .field label{
+            position:absolute;
+            left:14px;
+            top:50%;
+            transform:translateY(-50%);
+            font-size:0.9rem;
+            color:#cbd5f5;
+            pointer-events:none;
+            transition:all .18s ease;
+            padding:0 8px;
+            background:#172554;
+            border-radius:999px;
+            border:1px solid transparent;
+        }
+
+        .field textarea + label{
+            top:18px;
+            transform:none;
+        }
+
+        .field input:focus + label,
+        .field input:not(:placeholder-shown) + label{
+            top:0;
+            transform:translateY(-50%);
+            font-size:0.75rem;
+            color:#38bdf8;
+            border-color:rgba(56,189,248,0.7);
+        }
+
+        .field textarea:focus + label,
+        .field textarea:not(:placeholder-shown) + label{
+            top:0;
+            font-size:0.75rem;
+            color:#38bdf8;
+            border-color:rgba(56,189,248,0.7);
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus{
+            border-color:#38bdf8;
+            box-shadow:0 0 0 1px rgba(56,189,248,0.5);
+            background:#020617;
+        }
+
+        /* selects use first option as placeholder */
+        .field select option[disabled]{color:#6b7280;}
+        .field select:has(option:checked[disabled]){
+            color:#6b7280;
+        }
+        .field select + label{
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .field select:focus + label,
+        .field select:not(:has(option:checked[disabled])) + label{
+            top:0;
+            transform:translateY(-50%);
+            font-size:0.75rem;
+            color:#38bdf8;
+            border-color:rgba(56,189,248,0.7);
+        }
+
+        /* file block */
+        .file-field{
+            margin-top:6px;
+            border-radius:12px;
+            border:1px solid rgba(148,163,184,0.95);
+            background:#0f172a;
+            padding:12px 12px 10px;
+            position:relative;
+        }
+
+        .file-field-title{
+            position:absolute;
+            top:0;
+            left:14px;
+            transform:translateY(-50%);
+            font-size:0.8rem;
+            color:#cbd5f5;
+            padding:0 8px;
+            border-radius:999px;
+            background:#172554;
+            border:1px solid rgba(148,163,184,0.8);
+        }
+
+        .file-row{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            flex-wrap:wrap;
+            margin-top:8px;
+        }
+
+        .file-input{display:none;}
+
+        .file-btn{
+            padding:8px 16px;
+            border-radius:999px;
+            border:none;
+            background:linear-gradient(45deg,#2563eb,#38bdf8);
+            color:#f9fafb;
+            font-size:0.85rem;
+            font-weight:600;
+            cursor:pointer;
+            box-shadow:0 4px 12px rgba(37,99,235,0.5);
+            transition:transform .15s ease,box-shadow .15s ease;
+        }
+
+        .file-btn:hover{
+            transform:translateY(-1px);
+            box-shadow:0 7px 18px rgba(37,99,235,0.6);
+        }
+
+        .file-name{
+            font-size:0.8rem;
+            color:#e5e7eb;
+            opacity:0.9;
+        }
+
+        .note{
+            font-size:0.8rem;
+            opacity:0.9;
+            margin-top:4px;
+        }
+
+        .submit-btn{
+            width:100%;
+            padding:12px 22px;
+            border-radius:999px;
+            border:none;
+            background:linear-gradient(45deg,#f97316,#fbbf24);
+            color:#111827;
+            font-weight:600;
+            font-size:0.95rem;
+            text-transform:uppercase;
+            letter-spacing:0.5px;
+            cursor:pointer;
+            box-shadow:0 10px 24px rgba(249,115,22,0.6);
+            transition:transform .15s ease,box-shadow .15s ease;
+            margin-top:6px;
+        }
+
+        .submit-btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 14px 30px rgba(249,115,22,0.75);
+        }
+
+        .submit-btn:active{
+            transform:translateY(1px) scale(.97);
+            box-shadow:0 4px 12px rgba(0,0,0,0.85);
+        }
+
+        @media(max-width:600px){
+            .header-logos img{height:95px;}
+            .title{font-size:1.6rem;}
+            .form-wrapper{padding:18px 16px 22px;}
+        }
+    </style>
 </head>
-
 <body>
+    <div class="header-bar">
+        <div class="header-logos">
+            <img src="/images/government_of_india.jpg" alt="Government of India">
+            <img src="/images/mh_police.jpg" alt="Maharashtra Police">
+        </div>
+        <div class="header-title">
+            <h2 class="title">Cyber Crime Report</h2>
+            <p class="subtitle">Cyber Crime Report Form / सायबर गुन्हा तक्रार फॉर्म</p>
+        </div>
+    </div>
 
-    <img src="/images/government_of_india.jpg" height="100px">
-    <img src="/images/mh_police.jpg" height="100px">
+    <div class="form-wrapper">
+        <form method="post" action="/Cyber_Crime" enctype="multipart/form-data">
 
-    <h2>Cyber Crime Report Form / सायबर गुन्हा तक्रार फॉर्म</h2>
+            <!-- Reporter info -->
+            <div class="section">
+                <h3 class="section-title">Reporter Information / तक्रारदाराची माहिती</h3>
 
-    <form method="post" action="/Cyber_Crime" enctype="multipart/form-data">
+                <div class="field">
+                    <input name="name" id="name" placeholder="Name / नाव" required>
+                    <label for="name">Name / नाव</label>
+                </div>
 
-        <h3>Reporter Information / तक्रारदाराची माहिती</h3>
+                <div class="field">
+                    <input name="mobileNumber" id="mobileNumber" placeholder="Mobile Number / मोबाईल क्रमांक" required>
+                    <label for="mobileNumber">Mobile Number / मोबाईल क्रमांक</label>
+                </div>
 
-        <input name="name" placeholder="Name / नाव" required /><br><br>
+                <div class="field">
+                    <input name="email" id="email" placeholder="Email ID (Optional) / ईमेल आयडी (पर्यायी)">
+                    <label for="email">Email ID (Optional) / ईमेल आयडी (पर्यायी)</label>
+                </div>
+            </div>
 
-        <input name="mobileNumber" placeholder="Mobile Number / मोबाईल क्रमांक" required /><br><br>
+            <!-- Crime info -->
+            <div class="section">
+                <h3 class="section-title">Crime Information / गुन्ह्याची माहिती</h3>
 
-        <input name="email" placeholder="Email ID (Optional) / ईमेल आयडी (पर्यायी)" /><br><br>
+                <div class="field">
+                    <select name="crimeType" id="crimeType">
+                        <option value="" disabled selected>Select Crime Type (Optional) / गुन्ह्याचा प्रकार निवडा (पर्यायी)</option>
+                        <option value="online fraud">Online Fraud / ऑनलाइन फसवणूक</option>
+                        <option value="cyber harassment">Cyber Harassment / सायबर छळ</option>
+                        <option value="hacking">Hacking / हॅकिंग</option>
+                        <option value="identity theft">Identity Theft / ओळख चोरी</option>
+                        <option value="scams">Scams / स्कॅम</option>
+                    </select>
+                    <label for="crimeType">Crime Type (Optional) / गुन्ह्याचा प्रकार (पर्यायी)</label>
+                </div>
 
-        <h3>Crime Information / गुन्ह्याची माहिती</h3>
+                <div class="field">
+                    <input name="otherCrime" id="otherCrime" placeholder="Other (Optional) / इतर (पर्यायी)">
+                    <label for="otherCrime">Other (Optional) / इतर (पर्यायी)</label>
+                </div>
 
-        <select name="crimeType">
-            <option value="">Select Crime Type (Optional) / गुन्ह्याचा प्रकार निवडा (पर्यायी)</option>
-            <option value="online fraud">Online Fraud / ऑनलाइन फसवणूक</option>
-            <option value="cyber harassment">Cyber Harassment / सायबर छळ</option>
-            <option value="hacking">Hacking / हॅकिंग</option>
-            <option value="identity theft">Identity Theft / ओळख चोरी</option>
-            <option value="scams">Scams / स्कॅम</option>
-        </select><br><br>
+                <div class="field">
+                    <select name="occurredAt" id="occurredAt">
+                        <option value="" disabled selected>Where did it occur? (Optional) / तो कोठे घडला? (पर्यायी)</option>
+                        <option value="website">Website / वेबसाईट</option>
+                        <option value="app">App / ॲप्लिकेशन</option>
+                        <option value="call">Call / फोन कॉल</option>
+                        <option value="other">Other / इतर</option>
+                    </select>
+                    <label for="occurredAt">Where did it occur? (Optional) / तो कोठे घडला? (पर्यायी)</label>
+                </div>
 
-        <input name="otherCrime" placeholder="Other (Optional) / इतर (पर्यायी)" /><br><br>
+                <div class="field">
+                    <input name="otherOccurredAt" id="otherOccurredAt" placeholder="If other, please specify / इतर असल्यास कृपया सांगा">
+                    <label for="otherOccurredAt">If other, please specify / इतर असल्यास कृपया सांगा</label>
+                </div>
 
-        <select name="occurredAt">
-            <option value="">Where did it occur? (Optional) / तो कोठे घडला? (पर्यायी)</option>
-            <option value="website">Website / वेबसाईट</option>
-            <option value="app">App / ॲप्लिकेशन</option>
-            <option value="call">Call / फोन कॉल</option>
-             <option value="other">Other / इतर</option>
-        </select><br><br>
+                <div class="field">
+                    <input type="datetime-local" name="dateTime" id="dateTime" placeholder="Date & Time" required>
+                    <label for="dateTime">Date &amp; Time of incident / घटनेची तारीख व वेळ</label>
+                </div>
+            </div>
 
-        <input name="otherOccurredAt" placeholder="If other, please specify / इतर असल्यास कृपया सांगा" /><br><br>
-        
+            <!-- Screenshot + extra -->
+            <div class="section">
+                <h3 class="section-title">Evidence & Extra Information / पुरावे आणि अतिरिक्त माहिती</h3>
 
-        <input type="datetime-local" name="dateTime" required /><br><br>
-       <small>Screenshot (if any) / स्क्रीनशॉट (असल्यास)</small><br><br>
+                <div class="file-field">
+                    <span class="file-field-title">Screenshot (if any) / स्क्रीनशॉट (असल्यास)</span>
+                    <div class="file-row">
+                        <label class="file-btn" for="screenshotInput">Choose Screenshot</label>
+                        <span id="fileName" class="file-name">No file chosen</span>
+                        <input class="file-input" id="screenshotInput" type="file" name="screenshot" accept="image/*">
+                    </div>
+                    <p class="note">Attach screenshots, chat logs, or other visual proof if available.</p>
+                </div>
 
-        <input type="file" name="screenshot" accept="image/*" /><br><br>
-       
-        <textarea name="extraInfo" placeholder="Extra Information (Optional) / अतिरिक्त माहिती (पर्यायी)"></textarea><br><br>
+                <div class="field" style="margin-top:12px;">
+                    <textarea name="extraInfo" id="extraInfo" placeholder="Extra Information (Optional) / अतिरिक्त माहिती (पर्यायी)"></textarea>
+                    <label for="extraInfo">Extra Information (Optional) / अतिरिक्त माहिती (पर्यायी)</label>
+                </div>
+            </div>
 
-        <button type="submit">Submit Report / तक्रार नोंदवा</button>
+            <button type="submit" class="submit-btn">Submit Report / तक्रार नोंदवा</button>
+        </form>
+    </div>
 
-    </form>
+    <script>
+        const screenshotInput = document.getElementById('screenshotInput');
+        const fileNameSpan = document.getElementById('fileName');
 
+        screenshotInput.addEventListener('change', () => {
+            if (screenshotInput.files && screenshotInput.files.length > 0) {
+                fileNameSpan.textContent = screenshotInput.files[0].name;
+            } else {
+                fileNameSpan.textContent = 'No file chosen';
+            }
+        });
+    </script>
 </body>
 </html>
