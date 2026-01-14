@@ -51,7 +51,6 @@ Each report is stored securely in a MongoDB database and can include uploaded fi
 
 ## 📂 Project Structure
 
-```bash
 C_REPO/
 │
 ├── public/
