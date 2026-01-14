@@ -114,6 +114,8 @@ C_REPO/
 ├── package-lock.json
 └── README.md
 
+---
+
 ## ⚙️ How It Works
 
 1. Users access the home page of the application.
@@ -122,12 +124,16 @@ C_REPO/
 4. Submitted data is validated on the server.
 5. Valid reports are securely stored in MongoDB and managed centrally.
 
+---
+
 ## 🧪 Error Handling
 
 - Centralized error handling middleware is used across the application.
 - Proper HTTP status codes are returned for different error scenarios.
 - Stack traces are hidden in production to enhance security.
 - Clear and meaningful error messages are sent to the client.
+
+---
 
 ## 📈 Future Enhancements
 
@@ -136,6 +142,8 @@ C_REPO/
 - Case status tracking and report updates.
 - Email and SMS notification system.
 - Analytics and reporting features for insights and monitoring.
+
+---
 
 ## ⭐ Note
 
