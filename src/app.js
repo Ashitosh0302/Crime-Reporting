@@ -23,7 +23,7 @@ const app = express();
 
 //mongo db connection
 mongoose
-.connect("mongodb://localhost:27017/CRepo")
+.connect(process.env.MONGODB_URL)
 .then(()=>console.log("MongoDB connected"))
 .catch((err)=>console.log("error",err))
 
