@@ -49,8 +49,43 @@ Each report is stored securely in a MongoDB database and can include uploaded fi
 
 ---
 
+## ⚙️ How It Works
+
+1. Users access the home page of the application.
+2. They select the type of crime they want to report.
+3. The relevant form is filled with required details and file uploads.
+4. Submitted data is validated on the server.
+5. Valid reports are securely stored in MongoDB and managed centrally.
+
+---
+
+## 🧪 Error Handling
+
+- Centralized error handling middleware is used across the application.
+- Proper HTTP status codes are returned for different error scenarios.
+- Stack traces are hidden in production to enhance security.
+- Clear and meaningful error messages are sent to the client.
+
+---
+
+## 📈 Future Enhancements
+
+- Admin dashboard for managing and reviewing crime reports.
+- User authentication and authorization for secure access.
+- Case status tracking and report updates.
+- Email and SMS notification system.
+- Analytics and reporting features for insights and monitoring.
+
+---
+
+## ⭐ Note
+
+This project demonstrates a real-world application of full-stack development concepts, focusing on public safety, structured system architecture, and a scalable backend design.
+
+---
 ## 📂 Project Structure
 
+```bash
 C_REPO/
 │
 ├── public/
@@ -114,36 +149,3 @@ C_REPO/
 └── README.md
 
 ---
-
-## ⚙️ How It Works
-
-1. Users access the home page of the application.
-2. They select the type of crime they want to report.
-3. The relevant form is filled with required details and file uploads.
-4. Submitted data is validated on the server.
-5. Valid reports are securely stored in MongoDB and managed centrally.
-
----
-
-## 🧪 Error Handling
-
-- Centralized error handling middleware is used across the application.
-- Proper HTTP status codes are returned for different error scenarios.
-- Stack traces are hidden in production to enhance security.
-- Clear and meaningful error messages are sent to the client.
-
----
-
-## 📈 Future Enhancements
-
-- Admin dashboard for managing and reviewing crime reports.
-- User authentication and authorization for secure access.
-- Case status tracking and report updates.
-- Email and SMS notification system.
-- Analytics and reporting features for insights and monitoring.
-
----
-
-## ⭐ Note
-
-This project demonstrates a real-world application of full-stack development concepts, focusing on public safety, structured system architecture, and a scalable backend design.
